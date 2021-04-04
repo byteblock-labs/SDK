@@ -1,0 +1,187 @@
++ export PATH=/home/ByteBlockSDK/test-network/../bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/ByteBlockSDK/bin:/root/App/App/BC/ByteBlockSDK/bin:/usr/local/go/bin/
++ PATH=/home/ByteBlockSDK/test-network/../bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/ByteBlockSDK/bin:/root/App/App/BC/ByteBlockSDK/bin:/usr/local/go/bin/
++ export FABRIC_CFG_PATH=/home/ByteBlockSDK/test-network/configtx
++ FABRIC_CFG_PATH=/home/ByteBlockSDK/test-network/configtx
++ export VERBOSE=false
++ VERBOSE=false
++ source scriptUtils.sh
+++ C_RESET='\033[0m'
+++ C_RED='\033[0;31m'
+++ C_GREEN='\033[0;32m'
+++ C_BLUE='\033[0;34m'
+++ C_YELLOW='\033[1;33m'
+++ export -f errorln
+++ export -f successln
+++ export -f infoln
+++ export -f warnln
++ NONWORKING_VERSIONS='^1\.0\. ^1\.1\. ^1\.2\. ^1\.3\. ^1\.4\.'
+++ awk '{print tolower($0)}'
++++ sed 's/mingw64_nt.*/windows/'
++++ tr '[:upper:]' '[:lower:]'
++++ uname -s
++++ sed s/x86_64/amd64/g
++++ uname -m
+++ echo linux-amd64
++ OS_ARCH=linux-amd64
++ CRYPTO=cryptogen
++ MAX_RETRY=5
++ CLI_DELAY=3
++ CHANNEL_NAME=mychannel
++ CC_NAME=basic
++ CC_SRC_PATH=NA
++ CC_END_POLICY=NA
++ CC_COLL_CONFIG=NA
++ CC_INIT_FCN=NA
++ COMPOSE_FILE_BASE=docker/docker-compose-test-net.yaml
++ COMPOSE_FILE_COUCH=docker/docker-compose-couch.yaml
++ COMPOSE_FILE_CA=docker/docker-compose-ca.yaml
++ COMPOSE_FILE_COUCH_ORG3=addOrg3/docker/docker-compose-couch-org3.yaml
++ COMPOSE_FILE_ORG3=addOrg3/docker/docker-compose-org3.yaml
++ CC_SRC_LANGUAGE=go
++ CC_VERSION=1.0
++ CC_SEQUENCE=1
++ IMAGETAG=latest
++ CA_IMAGETAG=latest
++ DATABASE=leveldb
++ [[ 1 -lt 1 ]]
++ MODE=up
++ shift
++ [[ 0 -ge 1 ]]
++ [[ 0 -ge 1 ]]
++ '[' '!' -d organizations/peerOrganizations ']'
++ CRYPTO_MODE='with crypto from '\''cryptogen'\'''
++ '[' up == up ']'
++ infoln 'Starting nodes with CLI timeout of '\''5'\'' tries and CLI delay of '\''3'\'' seconds and using database '\''leveldb'\'' with crypto from '\''cryptogen'\'''
++ println '\033[0;34mStarting nodes with CLI timeout of '\''5'\'' tries and CLI delay of '\''3'\'' seconds and using database '\''leveldb'\'' with crypto from '\''cryptogen'\''\033[0m'
++ echo -e '\033[0;34mStarting nodes with CLI timeout of '\''5'\'' tries and CLI delay of '\''3'\'' seconds and using database '\''leveldb'\'' with crypto from '\''cryptogen'\''\033[0m'
+[0;34mStarting nodes with CLI timeout of '5' tries and CLI delay of '3' seconds and using database 'leveldb' with crypto from 'cryptogen'[0m
++ '[' up == up ']'
++ networkUp
++ checkPrereqs
++ peer version
++ [[ 0 -ne 0 ]]
++ [[ ! -d ../config ]]
+++ sed -ne 's/ Version: //p'
+++ peer version
++ LOCAL_VERSION=2.2.1
+++ head -1
+++ sed -ne 's/ Version: //p'
+++ docker run --rm hyperledger/fabric-tools:latest peer version
++ DOCKER_IMAGE_VERSION=2.3.0
++ infoln LOCAL_VERSION=2.2.1
++ println '\033[0;34mLOCAL_VERSION=2.2.1\033[0m'
++ echo -e '\033[0;34mLOCAL_VERSION=2.2.1\033[0m'
+[0;34mLOCAL_VERSION=2.2.1[0m
++ infoln DOCKER_IMAGE_VERSION=2.3.0
++ println '\033[0;34mDOCKER_IMAGE_VERSION=2.3.0\033[0m'
++ echo -e '\033[0;34mDOCKER_IMAGE_VERSION=2.3.0\033[0m'
+[0;34mDOCKER_IMAGE_VERSION=2.3.0[0m
++ '[' 2.2.1 '!=' 2.3.0 ']'
++ warnln 'Local fabric binaries and docker images are out of  sync. This may cause problems.'
++ println '\033[1;33mLocal fabric binaries and docker images are out of  sync. This may cause problems.\033[0m'
++ echo -e '\033[1;33mLocal fabric binaries and docker images are out of  sync. This may cause problems.\033[0m'
+[1;33mLocal fabric binaries and docker images are out of  sync. This may cause problems.[0m
++ for UNSUPPORTED_VERSION in $NONWORKING_VERSIONS
++ grep -q '^1\.0\.'
++ infoln 2.2.1
++ println '\033[0;34m2.2.1\033[0m'
++ echo -e '\033[0;34m2.2.1\033[0m'
++ '[' 1 -eq 0 ']'
++ grep -q '^1\.0\.'
++ infoln 2.3.0
++ println '\033[0;34m2.3.0\033[0m'
++ echo -e '\033[0;34m2.3.0\033[0m'
++ '[' 1 -eq 0 ']'
++ for UNSUPPORTED_VERSION in $NONWORKING_VERSIONS
++ grep -q '^1\.1\.'
++ infoln 2.2.1
++ println '\033[0;34m2.2.1\033[0m'
++ echo -e '\033[0;34m2.2.1\033[0m'
++ '[' 1 -eq 0 ']'
++ grep -q '^1\.1\.'
++ infoln 2.3.0
++ println '\033[0;34m2.3.0\033[0m'
++ echo -e '\033[0;34m2.3.0\033[0m'
++ '[' 1 -eq 0 ']'
++ for UNSUPPORTED_VERSION in $NONWORKING_VERSIONS
++ infoln 2.2.1
++ println '\033[0;34m2.2.1\033[0m'
++ echo -e '\033[0;34m2.2.1\033[0m'
++ grep -q '^1\.2\.'
++ '[' 1 -eq 0 ']'
++ grep -q '^1\.2\.'
++ infoln 2.3.0
++ println '\033[0;34m2.3.0\033[0m'
++ echo -e '\033[0;34m2.3.0\033[0m'
++ '[' 1 -eq 0 ']'
++ for UNSUPPORTED_VERSION in $NONWORKING_VERSIONS
++ grep -q '^1\.3\.'
++ infoln 2.2.1
++ println '\033[0;34m2.2.1\033[0m'
++ echo -e '\033[0;34m2.2.1\033[0m'
++ '[' 1 -eq 0 ']'
++ grep -q '^1\.3\.'
++ infoln 2.3.0
++ println '\033[0;34m2.3.0\033[0m'
++ echo -e '\033[0;34m2.3.0\033[0m'
++ '[' 1 -eq 0 ']'
++ for UNSUPPORTED_VERSION in $NONWORKING_VERSIONS
++ grep -q '^1\.4\.'
++ infoln 2.2.1
++ println '\033[0;34m2.2.1\033[0m'
++ echo -e '\033[0;34m2.2.1\033[0m'
++ '[' 1 -eq 0 ']'
++ grep -q '^1\.4\.'
++ infoln 2.3.0
++ println '\033[0;34m2.3.0\033[0m'
++ echo -e '\033[0;34m2.3.0\033[0m'
++ '[' 1 -eq 0 ']'
++ '[' cryptogen == 'Certificate Authorities' ']'
++ '[' '!' -d organizations/peerOrganizations ']'
++ createOrgs
++ '[' -d organizations/peerOrganizations ']'
++ '[' cryptogen == cryptogen ']'
++ which cryptogen
+/home/ByteBlockSDK/test-network/../bin/cryptogen
++ '[' 0 -ne 0 ']'
++ infoln 'Generate certificates using cryptogen tool'
++ println '\033[0;34mGenerate certificates using cryptogen tool\033[0m'
++ echo -e '\033[0;34mGenerate certificates using cryptogen tool\033[0m'
+[0;34mGenerate certificates using cryptogen tool[0m
++ infoln 'Create Org1 Identities'
++ println '\033[0;34mCreate Org1 Identities\033[0m'
++ echo -e '\033[0;34mCreate Org1 Identities\033[0m'
+[0;34mCreate Org1 Identities[0m
++ set -x
++ cryptogen generate --config=./organizations/cryptogen/crypto-config-org1.yaml --output=organizations
+org1.example.com
++ res=0
+[0;34mCreate Org2 Identities[0m
++ cryptogen generate --config=./organizations/cryptogen/crypto-config-org2.yaml --output=organizations
+org2.example.com
++ res=0
+[0;34mCreate Orderer Org Identities[0m
++ cryptogen generate --config=./organizations/cryptogen/crypto-config-orderer.yaml --output=organizations
++ res=0
+[0;34mGenerate CCP files for Org1 and Org2[0m
+/home/ByteBlockSDK/test-network/../bin/configtxgen
+[0;34mGenerating Orderer Genesis block[0m
++ configtxgen -profile TwoOrgsOrdererGenesis -channelID system-channel -outputBlock ./system-genesis-block/genesis.block
+[34m2021-01-29 18:10:01.335 IST [common.tools.configtxgen] main -> INFO 001[0m Loading configuration
+[34m2021-01-29 18:10:01.393 IST [common.tools.configtxgen.localconfig] completeInitialization -> INFO 002[0m orderer type: etcdraft
+[34m2021-01-29 18:10:01.393 IST [common.tools.configtxgen.localconfig] completeInitialization -> INFO 003[0m Orderer.EtcdRaft.Options unset, setting to tick_interval:"500ms" election_tick:10 heartbeat_tick:1 max_inflight_blocks:5 snapshot_interval_size:16777216 
+[34m2021-01-29 18:10:01.394 IST [common.tools.configtxgen.localconfig] Load -> INFO 004[0m Loaded configuration: /home/ByteBlockSDK/test-network/configtx/configtx.yaml
+[34m2021-01-29 18:10:01.397 IST [common.tools.configtxgen] doOutputBlock -> INFO 005[0m Generating genesis block
+[34m2021-01-29 18:10:01.398 IST [common.tools.configtxgen] doOutputBlock -> INFO 006[0m Writing genesis block
++ res=0
+Creating network "net_test" with the default driver
+Creating volume "net_orderer.example.com" with default driver
+Creating volume "net_peer0.org1.example.com" with default driver
+Creating volume "net_peer0.org2.example.com" with default driver
+Creating peer0.org1.example.com ... 
+Creating orderer.example.com    ... 
+Creating peer0.org2.example.com ... 
+[2A[2KCreating orderer.example.com    ... [32mdone[0m[2B[1A[2KCreating peer0.org2.example.com ... [32mdone[0m[1B[3A[2KCreating peer0.org1.example.com ... [32mdone[0m[3BCONTAINER ID   IMAGE                               COMMAND             CREATED         STATUS                  PORTS                              NAMES
+7bdc2dcef521   hyperledger/fabric-peer:latest      "peer node start"   4 seconds ago   Up Less than a second   7051/tcp, 0.0.0.0:9051->9051/tcp   peer0.org2.example.com
+04eb9dd8cdf1   hyperledger/fabric-orderer:latest   "orderer"           4 seconds ago   Up 1 second             0.0.0.0:7050->7050/tcp             orderer.example.com
+d2d8e58c59d5   hyperledger/fabric-peer:latest      "peer node start"   4 seconds ago   Up Less than a second   0.0.0.0:7051->7051/tcp             peer0.org1.example.com

@@ -1,0 +1,119 @@
+[0;34mdeploying chaincode on channel 'mychannel'[0m
+executing with the following
+- CHANNEL_NAME: [0;32mmychannel[0m
+- CC_NAME: [0;32mbasic[0m
+- CC_SRC_PATH: [0;32m../QuotaCareer/chaincode-javascript/[0m
+- CC_SRC_LANGUAGE: [0;32mjavascript[0m
+- CC_VERSION: [0;32m1.0[0m
+- CC_SEQUENCE: [0;32m1[0m
+- CC_END_POLICY: [0;32mNA[0m
+- CC_COLL_CONFIG: [0;32mNA[0m
+- CC_INIT_FCN: [0;32mNA[0m
+- DELAY: [0;32m3[0m
+- MAX_RETRY: [0;32m5[0m
+- VERBOSE: [0;32mfalse[0m
++ peer lifecycle chaincode package basic.tar.gz --path ../QuotaCareer/chaincode-javascript/ --lang node --label basic_1.0
++ res=0
+[0;32mChaincode is packaged[0m
+[0;34mInstalling chaincode on peer0.org1...[0m
+[0;34mUsing organization 1[0m
++ peer lifecycle chaincode install basic.tar.gz
++ res=0
+[34m2021-01-29 17:24:53.582 IST [cli.lifecycle.chaincode] submitInstallProposal -> INFO 001[0m Installed remotely: response:<status:200 payload:"\nJbasic_1.0:f3bd95b69a78e8099a0868b2c6d73d137d2c3daf313f5ec6d3a5cde4ac32f208\022\tbasic_1.0" > 
+[34m2021-01-29 17:24:53.582 IST [cli.lifecycle.chaincode] submitInstallProposal -> INFO 002[0m Chaincode code package identifier: basic_1.0:f3bd95b69a78e8099a0868b2c6d73d137d2c3daf313f5ec6d3a5cde4ac32f208
+[0;32mChaincode is installed on peer0.org1[0m
+[0;34mInstall chaincode on peer0.org2...[0m
+[0;34mUsing organization 2[0m
++ peer lifecycle chaincode install basic.tar.gz
++ res=0
+[34m2021-01-29 17:25:41.755 IST [cli.lifecycle.chaincode] submitInstallProposal -> INFO 001[0m Installed remotely: response:<status:200 payload:"\nJbasic_1.0:f3bd95b69a78e8099a0868b2c6d73d137d2c3daf313f5ec6d3a5cde4ac32f208\022\tbasic_1.0" > 
+[34m2021-01-29 17:25:41.756 IST [cli.lifecycle.chaincode] submitInstallProposal -> INFO 002[0m Chaincode code package identifier: basic_1.0:f3bd95b69a78e8099a0868b2c6d73d137d2c3daf313f5ec6d3a5cde4ac32f208
+[0;32mChaincode is installed on peer0.org2[0m
+[0;34mUsing organization 1[0m
++ peer lifecycle chaincode queryinstalled
++ res=0
+Installed chaincodes on peer:
+Package ID: basic_1.0:f3bd95b69a78e8099a0868b2c6d73d137d2c3daf313f5ec6d3a5cde4ac32f208, Label: basic_1.0
+[0;32mQuery installed successful on peer0.org1 on channel[0m
+[0;34mUsing organization 1[0m
++ peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile /home/ByteBlockSDK/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --channelID mychannel --name basic --version 1.0 --package-id basic_1.0:f3bd95b69a78e8099a0868b2c6d73d137d2c3daf313f5ec6d3a5cde4ac32f208 --sequence 1
++ res=0
+[34m2021-01-29 17:25:44.248 IST [chaincodeCmd] ClientWait -> INFO 001[0m txid [2fe70cbfaa8182b98151eecfc71dd0f51d54cbe6da4f180dd92e678238f973ba] committed with status (VALID) at localhost:7051
+[0;32mChaincode definition approved on peer0.org1 on channel 'mychannel'[0m
+[0;34mUsing organization 1[0m
+[0;34mChecking the commit readiness of the chaincode definition on peer0.org1 on channel 'mychannel'...[0m
+[0;34mAttempting to check the commit readiness of the chaincode definition on peer0.org1, Retry after 3 seconds.[0m
++ peer lifecycle chaincode checkcommitreadiness --channelID mychannel --name basic --version 1.0 --sequence 1 --output json
++ res=0
+{
+	"approvals": {
+		"Org1MSP": true,
+		"Org2MSP": false
+	}
+}
+[0;34mChecking the commit readiness of the chaincode definition successful on peer0.org1 on channel 'mychannel'[0m
+[0;34mUsing organization 2[0m
+[0;34mChecking the commit readiness of the chaincode definition on peer0.org2 on channel 'mychannel'...[0m
+[0;34mAttempting to check the commit readiness of the chaincode definition on peer0.org2, Retry after 3 seconds.[0m
++ peer lifecycle chaincode checkcommitreadiness --channelID mychannel --name basic --version 1.0 --sequence 1 --output json
++ res=0
+{
+	"approvals": {
+		"Org1MSP": true,
+		"Org2MSP": false
+	}
+}
+[0;34mChecking the commit readiness of the chaincode definition successful on peer0.org2 on channel 'mychannel'[0m
+[0;34mUsing organization 2[0m
++ peer lifecycle chaincode approveformyorg -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile /home/ByteBlockSDK/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --channelID mychannel --name basic --version 1.0 --package-id basic_1.0:f3bd95b69a78e8099a0868b2c6d73d137d2c3daf313f5ec6d3a5cde4ac32f208 --sequence 1
++ res=0
+[34m2021-01-29 17:25:53.049 IST [chaincodeCmd] ClientWait -> INFO 001[0m txid [a230f680c8fcdf96a932e47675e9f0c2254e9ec9a23d5c7587831b091b472ee4] committed with status (VALID) at localhost:9051
+[0;32mChaincode definition approved on peer0.org2 on channel 'mychannel'[0m
+[0;34mUsing organization 1[0m
+[0;34mChecking the commit readiness of the chaincode definition on peer0.org1 on channel 'mychannel'...[0m
+[0;34mAttempting to check the commit readiness of the chaincode definition on peer0.org1, Retry after 3 seconds.[0m
++ peer lifecycle chaincode checkcommitreadiness --channelID mychannel --name basic --version 1.0 --sequence 1 --output json
++ res=0
+{
+	"approvals": {
+		"Org1MSP": true,
+		"Org2MSP": true
+	}
+}
+[0;34mChecking the commit readiness of the chaincode definition successful on peer0.org1 on channel 'mychannel'[0m
+[0;34mUsing organization 2[0m
+[0;34mChecking the commit readiness of the chaincode definition on peer0.org2 on channel 'mychannel'...[0m
+[0;34mAttempting to check the commit readiness of the chaincode definition on peer0.org2, Retry after 3 seconds.[0m
++ peer lifecycle chaincode checkcommitreadiness --channelID mychannel --name basic --version 1.0 --sequence 1 --output json
++ res=0
+{
+	"approvals": {
+		"Org1MSP": true,
+		"Org2MSP": true
+	}
+}
+[0;34mChecking the commit readiness of the chaincode definition successful on peer0.org2 on channel 'mychannel'[0m
+[0;34mUsing organization 1[0m
+[0;34mUsing organization 2[0m
++ peer lifecycle chaincode commit -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile /home/ByteBlockSDK/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --channelID mychannel --name basic --peerAddresses localhost:7051 --tlsRootCertFiles /home/ByteBlockSDK/test-network/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt --peerAddresses localhost:9051 --tlsRootCertFiles /home/ByteBlockSDK/test-network/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt --version 1.0 --sequence 1
++ res=0
+[34m2021-01-29 17:26:01.990 IST [chaincodeCmd] ClientWait -> INFO 001[0m txid [cb96db74f7630bd0ec66310c5f7ee45d2b67cba5d5ba0f30cb6a2018df060089] committed with status (VALID) at localhost:7051
+[34m2021-01-29 17:26:01.995 IST [chaincodeCmd] ClientWait -> INFO 002[0m txid [cb96db74f7630bd0ec66310c5f7ee45d2b67cba5d5ba0f30cb6a2018df060089] committed with status (VALID) at localhost:9051
+[0;32mChaincode definition committed on channel 'mychannel'[0m
+[0;34mUsing organization 1[0m
+[0;34mQuerying chaincode definition on peer0.org1 on channel 'mychannel'...[0m
+[0;34mAttempting to Query committed status on peer0.org1, Retry after 3 seconds.[0m
++ peer lifecycle chaincode querycommitted --channelID mychannel --name basic
++ res=0
+Committed chaincode definition for chaincode 'basic' on channel 'mychannel':
+Version: 1.0, Sequence: 1, Endorsement Plugin: escc, Validation Plugin: vscc, Approvals: [Org1MSP: true, Org2MSP: true]
+[0;32mQuery chaincode definition successful on peer0.org1 on channel 'mychannel'[0m
+[0;34mUsing organization 2[0m
+[0;34mQuerying chaincode definition on peer0.org2 on channel 'mychannel'...[0m
+[0;34mAttempting to Query committed status on peer0.org2, Retry after 3 seconds.[0m
++ peer lifecycle chaincode querycommitted --channelID mychannel --name basic
++ res=0
+Committed chaincode definition for chaincode 'basic' on channel 'mychannel':
+Version: 1.0, Sequence: 1, Endorsement Plugin: escc, Validation Plugin: vscc, Approvals: [Org1MSP: true, Org2MSP: true]
+[0;32mQuery chaincode definition successful on peer0.org2 on channel 'mychannel'[0m
+[0;34mChaincode initialization is not required[0m
